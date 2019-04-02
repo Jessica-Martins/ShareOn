@@ -1,0 +1,58 @@
+package com.example.shareon.adapters;
+
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.shareon.R;
+
+public class ListaProximos extends RecyclerView.Adapter<ListaProximos.MyViewHolder>{
+
+    @NonNull
+    @Override
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+
+        View listaProximoItem = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.lista_items, viewGroup,false);
+
+        return new MyViewHolder(listaProximoItem);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
+
+        myViewHolder.Distancia.setText("400M");
+        myViewHolder.IdAvaliacao.setText("4.9");
+        myViewHolder.IdTitulo.setText("Honda Fit");
+        myViewHolder.IdFoto.setImageResource(R.drawable.teste2);
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return 16;
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder{
+
+        TextView IdTitulo;
+        TextView IdAvaliacao;
+        TextView Distancia;
+        ImageView IdFoto;
+
+        public MyViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            IdTitulo = itemView.findViewById(R.id.textTitulo);
+            IdAvaliacao = itemView.findViewById(R.id.textAvaliacao);
+            Distancia = itemView.findViewById(R.id.textDistancia);
+            IdFoto = itemView.findViewById(R.id.imageFoto);
+
+        }
+    }
+
+}
